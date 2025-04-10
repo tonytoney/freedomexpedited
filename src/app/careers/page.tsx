@@ -14,10 +14,9 @@ const requirements = [
 
 const benefits = [
   "Competitive pay rates",
-  "Health, dental, and vision insurance",
-  "Paid time off and holidays",
-  "401(k) with company match",
-  "Modern, well-maintained equipment",
+  "Plate Program",
+  "Fuel Card", 
+  "Optional insurances",
   "Regular home time",
 ]
 
