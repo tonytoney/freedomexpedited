@@ -18,7 +18,7 @@ const locations = [
   {
     name: 'Savannah, GA',
     address: '456 Port Way, Savannah, GA 31401',
-    phone: '(912) 665-9672',
+    phone: '(912) 657-1263',
     email: 'sav@freedomexpedited.com',
   },
   {
