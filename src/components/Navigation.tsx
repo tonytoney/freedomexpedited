@@ -104,7 +104,7 @@ export default function Navigation() {
             />
             
             {/* Menu panel */}
-            <div className="fixed inset-y-0 right-0 z-50 w-full h-full flex flex-col bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="fixed inset-y-0 right-0 z-50 w-full h-full flex flex-col bg-white/95 dark:bg-gray-900/95 px-6 py-6 sm:max-w-sm shadow-xl dark:shadow-2xl backdrop-filter backdrop-blur-md">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <span className="text-xl font-bold text-primary">FREEDOM</span>
@@ -130,7 +130,7 @@ export default function Navigation() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-100/80 dark:hover:bg-gray-800/80"
                         >
                           {item.name}
                         </a>
@@ -138,7 +138,7 @@ export default function Navigation() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-100/80 dark:hover:bg-gray-800/80"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.name}
