@@ -11,6 +11,7 @@ const navigation = [
   { name: 'Services', href: '/services' },
   { name: 'Locations', href: '/locations' },
   { name: 'Careers', href: '/careers' },
+  { name: 'Tracking', href: 'https://www.inpaxshippingportal.com', external: true },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -47,13 +48,25 @@ export default function Navigation() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary transition-colors duration-200"
-              >
-                {item.name}
-              </Link>
+              item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary transition-colors duration-200"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary transition-colors duration-200"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
@@ -105,14 +118,26 @@ export default function Navigation() {
                 <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-700">
                   <div className="space-y-2 py-6">
                     {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
+                      item.external ? (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                        >
+                          {item.name}
+                        </a>
+                      ) : (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      )
                     ))}
                   </div>
                   <div className="py-6">
