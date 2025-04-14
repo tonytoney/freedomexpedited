@@ -9,6 +9,14 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Freedom Expedited Services, Inc. | Port Drayage Trucking',
   description: 'Professional port drayage trucking services. We specialize in efficient container transportation and logistics solutions.',
+  icons: {
+    icon: [
+      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon/favicon.svg',
+    apple: '/favicon/apple-touch-icon.svg',
+  },
+  manifest: '/favicon/site.webmanifest',
 }
 
 export default function RootLayout({

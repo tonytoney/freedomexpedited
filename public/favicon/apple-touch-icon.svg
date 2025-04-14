@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="#1a1a1a"/>
+  <!-- "F" letter -->
+  <path d="M50 45 L50 135 L75 135 L75 95 L130 95 L130 70 L75 70 L75 45 Z" fill="#E67E22"/>
+</svg> 
