@@ -18,7 +18,7 @@ const navigation = [
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
-
+  
   return (
     <header className="fixed w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 shadow-sm">
       <nav className="container-custom mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
@@ -36,6 +36,8 @@ export default function Navigation() {
               <span className="sr-only">Freedom Expedited</span>
             </Link>
           </div>
+          
+          {/* Mobile menu button */}
           <div className="flex lg:hidden">
             <button
               type="button"
@@ -46,6 +48,8 @@ export default function Navigation() {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
+          
+          {/* Desktop navigation */}
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
               item.external ? (
@@ -69,7 +73,9 @@ export default function Navigation() {
               )
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
+          
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-4">
+            {/* Theme toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
@@ -80,31 +86,30 @@ export default function Navigation() {
                 <MoonIcon className="h-6 w-6 text-gray-900" />
               )}
             </button>
-            <Link 
-              href="/contact" 
-              className="btn-primary transition-transform hover:scale-105 duration-200"
-            >
+            
+            <Link href="/contact" className="btn-primary">
               Get a Quote
             </Link>
           </div>
         </div>
-        {/* Mobile menu */}
+        
+        {/* Mobile menu, show/hide based on menu state */}
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-50 lg:hidden">
-            <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" />
-            <div className="fixed inset-y-0 right-0 z-50 w-full h-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            {/* Background overlay */}
+            <div 
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm" 
+              onClick={() => setMobileMenuOpen(false)} 
+              aria-hidden="true" 
+            />
+            
+            {/* Menu panel */}
+            <div className="fixed inset-y-0 right-0 z-50 w-full h-full flex flex-col bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
-                <Link href="/" className="-m-1.5 p-1.5">
-                  <Image
-                    src="/images/freedom-logo-removebg-preview (1).png"
-                    alt="Freedom Expedited Logo"
-                    width={160}
-                    height={40}
-                    className="h-10 w-auto"
-                    priority
-                  />
-                  <span className="sr-only">Freedom Expedited</span>
-                </Link>
+                <div className="flex items-center">
+                  <span className="text-xl font-bold text-primary">FREEDOM</span>
+                  <span className="text-sm ml-1 text-gray-600 dark:text-gray-400">EXPEDITED</span>
+                </div>
                 <button
                   type="button"
                   className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-200"
@@ -114,9 +119,10 @@ export default function Navigation() {
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
-              <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-700">
-                  <div className="space-y-2 py-6">
+              
+              <div className="mt-6 flex-grow">
+                <div className="divide-y divide-gray-500/10 dark:divide-gray-700 h-full flex flex-col">
+                  <div className="space-y-2 py-6 flex-grow">
                     {navigation.map((item) => (
                       item.external ? (
                         <a
@@ -140,12 +146,13 @@ export default function Navigation() {
                       )
                     ))}
                   </div>
+                  
                   <div className="py-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-gray-700 dark:text-gray-300">Theme</span>
+                    <div className="flex items-center justify-end mb-4">
                       <button
                         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                         className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+                        aria-label="Toggle theme"
                       >
                         {theme === 'dark' ? (
                           <SunIcon className="h-6 w-6 text-gray-100" />
@@ -156,7 +163,7 @@ export default function Navigation() {
                     </div>
                     <Link
                       href="/contact"
-                      className="btn-primary block text-center"
+                      className="btn-primary block text-center w-full"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Get a Quote
