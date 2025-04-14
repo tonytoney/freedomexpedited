@@ -82,9 +82,9 @@ export default function Terms() {
                 For questions about these Terms of Service, please contact us at:
               </p>
               <p className="text-gray-600 dark:text-gray-300">
-                Email: legal@freedomexpedited.com<br />
+                Email: info@freedomexpedited.com<br />
                 Phone: (904) 555-0123<br />
-                Address: 123 Port Terminal Rd, Jacksonville, FL 32226
+                Address: 13981 Pecan Park Road, Jacksonville, FL 32218
               </p>
             </section>
           </div>
