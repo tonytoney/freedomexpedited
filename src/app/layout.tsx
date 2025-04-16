@@ -1,18 +1,25 @@
 import { Inter } from 'next/font/google'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { ThemeProvider } from 'next-themes'
 import Navigation from '@/components/Navigation'
 import '../styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+}
+
 export const metadata: Metadata = {
-  title: 'Freedom Expedited Services, Inc. | Port Drayage Trucking',
-  description: 'Professional port drayage trucking services. We specialize in efficient container transportation and logistics solutions.',
+  title: 'Freedom Expedited | Drayage, Intermodal & Freight Solutions',
+  description: 'Freedom Expedited delivers fast, reliable drayage, intermodal, and full truckload solutions with real-time tracking and coast-to-coast service coverage.',
+  keywords: 'drayage, intermodal freight, container drayage, port logistics, full truckload shipping, expedited freight, Freedom Expedited, freight solutions USA, transportation company',
+  authors: [{ name: 'Freedom Expedited' }],
+  robots: 'index, follow',
   icons: {
     icon: [
       { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon/favicon.ico', type: 'image/x-icon' },
     ],
     shortcut: '/favicon/favicon.svg',
     apple: '/favicon/apple-touch-icon.svg',
