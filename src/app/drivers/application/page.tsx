@@ -12,6 +12,284 @@ export default function DriverApplicationPage() {
         <h1 className="text-4xl font-bold mb-8 text-center">Driver Application</h1>
         
         <div className="space-y-8">
+          {/* Driver's Application for Employment */}
+          <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold mb-4">Driver's Application for Employment</h2>
+            
+            <div className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block mb-2">Date:</label>
+                  <input type="date" className="w-full p-2 border rounded" />
+                </div>
+                <div>
+                  <label className="block mb-2">Position Applied For:</label>
+                  <input type="text" className="w-full p-2 border rounded" />
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Personal Information</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block mb-2">First Name:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Last Name:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Middle Name:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Social Security Number:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Date of Birth:</label>
+                    <input type="date" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Driver's License Number:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">State:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Expiration Date:</label>
+                    <input type="date" className="w-full p-2 border rounded" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Current Address</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="col-span-2">
+                    <label className="block mb-2">Street Address:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">City:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">State:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">ZIP Code:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Phone:</label>
+                    <input type="tel" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Email:</label>
+                    <input type="email" className="w-full p-2 border rounded" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Emergency Contact</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block mb-2">Name:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Relationship:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Phone:</label>
+                    <input type="tel" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Address:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Employment History */}
+          <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold mb-4">Employment History</h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
+              List all employment for the past 3 years, including self-employment and military service. Start with your most recent employer.
+            </p>
+            
+            <div className="space-y-6">
+              {[1, 2, 3].map((index) => (
+                <div key={index} className="border p-4 rounded">
+                  <h3 className="text-lg font-semibold mb-4">Employer {index}</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block mb-2">Company Name:</label>
+                      <input type="text" className="w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                      <label className="block mb-2">Position:</label>
+                      <input type="text" className="w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                      <label className="block mb-2">From Date:</label>
+                      <input type="date" className="w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                      <label className="block mb-2">To Date:</label>
+                      <input type="date" className="w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                      <label className="block mb-2">Address:</label>
+                      <input type="text" className="w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                      <label className="block mb-2">Phone:</label>
+                      <input type="tel" className="w-full p-2 border rounded" />
+                    </div>
+                    <div className="col-span-2">
+                      <label className="block mb-2">Reason for Leaving:</label>
+                      <input type="text" className="w-full p-2 border rounded" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Accident Record */}
+          <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold mb-4">Accident Record for Past 3 Years</h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
+              List all accidents in which you were involved during the past 3 years, including those that did not result in a citation.
+            </p>
+            
+            <div className="space-y-6">
+              {[1, 2, 3].map((index) => (
+                <div key={index} className="border p-4 rounded">
+                  <h3 className="text-lg font-semibold mb-4">Accident {index}</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block mb-2">Date:</label>
+                      <input type="date" className="w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                      <label className="block mb-2">Location:</label>
+                      <input type="text" className="w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                      <label className="block mb-2">Number of Fatalities:</label>
+                      <input type="number" className="w-full p-2 border rounded" />
+                    </div>
+                    <div>
+                      <label className="block mb-2">Number of Injuries:</label>
+                      <input type="number" className="w-full p-2 border rounded" />
+                    </div>
+                    <div className="col-span-2">
+                      <label className="block mb-2">Hazardous Materials Released:</label>
+                      <input type="text" className="w-full p-2 border rounded" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Safety Performance History Records Request */}
+          <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold mb-4">Safety Performance History Records Request</h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
+              This form is to be completed by the applicant and sent to each DOT-regulated employer for whom the applicant worked during the previous 3 years.
+            </p>
+            
+            <div className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block mb-2">Driver's Name:</label>
+                  <input type="text" className="w-full p-2 border rounded" />
+                </div>
+                <div>
+                  <label className="block mb-2">Driver's License Number:</label>
+                  <input type="text" className="w-full p-2 border rounded" />
+                </div>
+                <div>
+                  <label className="block mb-2">Social Security Number:</label>
+                  <input type="text" className="w-full p-2 border rounded" />
+                </div>
+                <div>
+                  <label className="block mb-2">Date of Birth:</label>
+                  <input type="date" className="w-full p-2 border rounded" />
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Previous Employer Information</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block mb-2">Company Name:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Contact Person:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Phone Number:</label>
+                    <input type="tel" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Email:</label>
+                    <input type="email" className="w-full p-2 border rounded" />
+                  </div>
+                  <div className="col-span-2">
+                    <label className="block mb-2">Address:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Employment Period</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block mb-2">From:</label>
+                    <input type="date" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">To:</label>
+                    <input type="date" className="w-full p-2 border rounded" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Authorization</h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  I authorize the release of my safety performance history information to Freedom Expedited. This includes information about my driving record, accidents, and any drug/alcohol testing violations.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block mb-2">Date:</label>
+                    <input type="date" className="w-full p-2 border rounded" />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Signature:</label>
+                    <input type="text" className="w-full p-2 border rounded" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-4">DOT D/A Disclosure and Authorization</h2>
             
