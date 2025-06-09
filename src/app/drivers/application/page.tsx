@@ -106,11 +106,78 @@ export default function DriverApplicationPage() {
                 <input type="text" className="w-full p-2 border rounded" />
               </div>
             </div>
+          </section>
 
-            <div className="text-center">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">
-                Submit Application
-              </button>
+          <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold mb-4">PSP Online Service Disclosure</h2>
+            <div className="space-y-4 text-gray-700 dark:text-gray-300">
+              <p>
+                In connection with your application for employment with Freedom Expedited ("Prospective Employer"), Prospective Employer, its employees, agents or contractors may obtain one or more reports regarding your driving, and safety inspection history from the Federal Motor Carrier Safety Administration (FMCSA).
+              </p>
+              <p>
+                When the application for employment is submitted in person, if the Prospective Employer uses any information it obtains from FMCSA in a decision to not hire you or to make any other adverse employment decision regarding you, the Prospective Employer will provide you with a copy of the report upon which its decision was based and a written summary of your rights under the Fair Credit Reporting Act before taking any final adverse action.
+              </p>
+              <p>
+                When the application for employment is submitted by mail, telephone, computer, or other similar means, if the Prospective Employer uses any information it obtains from FMCSA in a decision to not hire you or to make any other adverse employment decision regarding you, the Prospective Employer must provide you within three business days of taking adverse action oral, written or electronic notification: that adverse action has been taken based in whole or in part on information obtained from FMCSA; the name, address, and the toll free telephone number of FMCSA; that the FMCSA did not make the decision to take the adverse action and is unable to provide you the specific reasons why the adverse action was taken; and that you may, upon providing proper identification, request a free copy of the report and may dispute with the FMCSA the accuracy or completeness of any information or report.
+              </p>
+              <p>
+                Neither the Prospective Employer nor the FMCSA contractor supplying the crash and safety information has the capability to correct any safety data that appears to be incorrect. You may challenge the accuracy of the data by submitting a request to https://dataqs.fmcsa.dot.gov. If you challenge crash or inspection information reported by a State, FMCSA cannot change or correct this data. Your request will be forwarded by the DataQs system to the appropriate State for adjudication.
+              </p>
+              <p>
+                Any crash or inspection in which you were involved will display on your PSP report. Since the PSP report does not report, or assign, or imply fault, it will include all Commercial Motor Vehicle (CMV) crashes where you were a driver or co-driver and where those crashes were reported to FMCSA, regardless of fault. Similarly, all inspections, with or without violations, appear on the PSP report. State citations associated with Federal Motor Carrier Safety Regulations (FMCSR) violations that have been adjudicated by a court of law will also appear, and remain, on a PSP report.
+              </p>
+              <p>
+                The Prospective Employer cannot obtain background reports from FMCSA without your authorization.
+              </p>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold mb-4">AUTHORIZATION</h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                I authorize Freedom Expedited ("Prospective Employer") to access the FMCSA Pre-Employment Screening Program (PSP) system to seek information regarding my commercial driving safety record and information regarding my safety inspection history. I understand that I am authorizing the release of safety performance information including crash data from the previous five (5) years and inspection history from the previous three (3) years. I understand and acknowledge that this release of information may assist the Prospective Employer to make a determination regarding my suitability as an employee.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block mb-2">Date:</label>
+                  <input type="date" className="w-full p-2 border rounded" />
+                </div>
+                <div>
+                  <label className="block mb-2">Signature:</label>
+                  <input type="text" className="w-full p-2 border rounded" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-semibold mb-4">Background Investigation Disclosure and Authorization</h2>
+            <div className="space-y-4 text-gray-700 dark:text-gray-300">
+              <p>
+                Freedom Expedited (the "Company") may request from a consumer reporting agency and for employment-related purposes, a "consumer report(s)" (commonly known as "background reports") containing background information about you in connection with your employment, or application for employment, or engagement for services (including independent contractor or volunteer assignments, as applicable).
+              </p>
+              <p>
+                The Company will prepare or assemble the background reports. The Company is located and can be contacted at [Company Address].
+              </p>
+              <p>
+                The background reports may include information concerning your character, employment history, general reputation, personal characteristics, mode of living, credit worthiness, credit standing, credit capacity, education, qualifications, motor vehicle record, criminal history, and any other information that may be reflected in a consumer report or investigative consumer report.
+              </p>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold mb-4">AUTHORIZATION</h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                I authorize the Company to obtain consumer reports and/or investigative consumer reports about me for employment purposes. I understand that if the Company hires me, my authorization will remain on file and serve as an ongoing authorization for the Company to obtain consumer reports and/or investigative consumer reports throughout my employment.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block mb-2">Date:</label>
+                  <input type="date" className="w-full p-2 border rounded" />
+                </div>
+                <div>
+                  <label className="block mb-2">Signature:</label>
+                  <input type="text" className="w-full p-2 border rounded" />
+                </div>
+              </div>
             </div>
           </section>
 
@@ -127,6 +194,12 @@ export default function DriverApplicationPage() {
               </ol>
             </div>
           </section>
+
+          <div className="text-center">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg">
+              Submit Application
+            </button>
+          </div>
         </div>
       </div>
     </div>
