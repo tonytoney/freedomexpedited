@@ -77,7 +77,7 @@ const howItWorks = [
   }
 ]
 
-const testimonials = [
+/*const testimonials = [
   {
     name: 'Sarah Johnson',
     role: 'Agent, Los Angeles',
@@ -96,7 +96,7 @@ const testimonials = [
     content: 'The onboarding process was smooth and the ongoing support is exceptional. I couldn\'t ask for a better partner.',
     image: '/images/hero-truck.jpg'
   }
-]
+]*/
 
 const faqs = [
   {
