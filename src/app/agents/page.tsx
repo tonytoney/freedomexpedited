@@ -300,45 +300,45 @@ export default function AgentApplicationPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Success Stories
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Hear from our successful agents
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={64}
-                      height={64}
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold">{testimonial.name}</h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 italic">"{testimonial.content}"</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+             {/* Testimonials - Temporarily hidden until we have more agents */}
+       {/* <section className="py-20 bg-gray-50 dark:bg-gray-800">
+         <div className="container-custom">
+           <div className="text-center mb-16">
+             <h2 className="text-4xl md:text-5xl font-bold mb-6">
+               Success Stories
+             </h2>
+             <p className="text-xl text-gray-600 dark:text-gray-300">
+               Hear from our successful agents
+             </p>
+           </div>
+           
+           <div className="grid md:grid-cols-3 gap-8">
+             {testimonials.map((testimonial, index) => (
+               <div
+                 key={index}
+                 className="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg"
+               >
+                 <div className="flex items-center mb-6">
+                   <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                     <Image
+                       src={testimonial.image}
+                       alt={testimonial.name}
+                       width={64}
+                       height={64}
+                       className="object-cover"
+                     />
+                   </div>
+                   <div>
+                     <h4 className="font-bold">{testimonial.name}</h4>
+                     <p className="text-gray-600 dark:text-gray-300 text-sm">{testimonial.role}</p>
+                   </div>
+                 </div>
+                 <p className="text-gray-600 dark:text-gray-300 italic">"{testimonial.content}"</p>
+               </div>
+             ))}
+           </div>
+         </div>
+       </section> */}
 
       {/* Application Form */}
       <section ref={formRef} className="py-20 bg-white dark:bg-gray-900">
@@ -354,36 +354,49 @@ export default function AgentApplicationPage() {
             </div>
             
             <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg">
-              {/* Progress Bar */}
-              <div className="mb-8">
-                <div className="flex justify-between mb-2">
-                  <span className="text-sm font-medium">Step {formStep} of 3</span>
-                  <span className="text-sm text-gray-500">{Math.round((formStep / 3) * 100)}%</span>
-                </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div 
-                    className="bg-primary h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${(formStep / 3) * 100}%` }}
-                  ></div>
-                </div>
-              </div>
+                             {/* Progress Bar */}
+               <div className="mb-8">
+                 <div className="flex justify-between mb-2">
+                   <span className="text-sm font-medium">Step {formStep} of 3</span>
+                   <span className="text-sm text-gray-500">{Math.min(Math.round((formStep / 3) * 100), 100)}%</span>
+                 </div>
+                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                   <div 
+                     className="bg-primary h-2 rounded-full transition-all duration-300"
+                     style={{ width: `${Math.min((formStep / 3) * 100, 100)}%` }}
+                   ></div>
+                 </div>
+               </div>
 
-              {formStep === 4 ? (
-                <div className="text-center py-12">
-                  <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold mb-4">Application Submitted!</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Thank you for your interest in becoming a Freedom Expedited agent. 
-                    Our team will review your application and contact you within 2-3 business days.
-                  </p>
-                  <button
-                    onClick={() => setFormStep(1)}
-                    className="btn-primary"
-                  >
-                    Submit Another Application
-                  </button>
-                </div>
-              ) : (
+                             {formStep === 4 ? (
+                 <div className="text-center py-12">
+                   <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-6" />
+                   <h3 className="text-2xl font-bold mb-4">Application Submitted!</h3>
+                   <p className="text-gray-600 dark:text-gray-300 mb-6">
+                     Thank you for your interest in becoming a Freedom Expedited agent. 
+                     Our team will review your application and contact you within 2-3 business days.
+                   </p>
+                   <button
+                     onClick={() => {
+                       setFormStep(1)
+                       setFormData({
+                         companyName: '',
+                         contactName: '',
+                         email: '',
+                         phone: '',
+                         trucks: '',
+                         revenue: '',
+                         territory: '',
+                         experience: '',
+                         message: ''
+                       })
+                     }}
+                     className="btn-primary"
+                   >
+                     Submit Another Application
+                   </button>
+                 </div>
+               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {formStep === 1 && (
                     <div className="space-y-6">
@@ -488,7 +501,7 @@ export default function AgentApplicationPage() {
                              onChange={handleInputChange}
                              required
                              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 ${
-                               !formData.revenue 
+                               formData.revenue === '' && formStep === 2
                                  ? 'border-red-500 dark:border-red-500' 
                                  : 'border-gray-300 dark:border-gray-600'
                              }`}
@@ -500,7 +513,7 @@ export default function AgentApplicationPage() {
                              <option value="10M+">$10M+</option>
                            </select>
                            <p className={`text-sm mt-1 ${
-                             !formData.revenue 
+                             formData.revenue === '' && formStep === 2
                                ? 'text-red-500' 
                                : 'text-gray-500'
                            }`}>
@@ -538,14 +551,23 @@ export default function AgentApplicationPage() {
                       <h3 className="text-2xl font-bold mb-6">Additional Information</h3>
                       <div>
                         <label className="block text-sm font-medium mb-2">Tell us about your business</label>
-                        <textarea
-                          name="message"
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          rows={6}
-                          placeholder="Describe your current operations, goals, and why you're interested in becoming a Freedom Expedited agent..."
-                          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
-                        ></textarea>
+                                                 <textarea
+                           name="message"
+                           value={formData.message}
+                           onChange={handleInputChange}
+                           onKeyDown={(e) => {
+                             if (e.key === 'Enter' && e.ctrlKey) {
+                               // Allow Ctrl+Enter for new line
+                               return
+                             }
+                             if (e.key === 'Enter') {
+                               e.preventDefault()
+                             }
+                           }}
+                           rows={6}
+                           placeholder="Describe your current operations, goals, and why you're interested in becoming a Freedom Expedited agent..."
+                           className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
+                         ></textarea>
                       </div>
                     </div>
                   )}
