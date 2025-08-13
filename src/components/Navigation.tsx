@@ -10,6 +10,7 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'Locations', href: '/locations' },
+  { name: 'Agents', href: '/agents' },
   { name: 'Careers', href: '/careers' },
   { name: 'Tracking', href: 'https://www.inpaxshippingportal.com', external: true },
   { name: 'Contact', href: '/contact' },
