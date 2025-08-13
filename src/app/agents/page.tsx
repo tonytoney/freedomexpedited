@@ -155,6 +155,7 @@ export default function AgentApplicationPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    console.log('Form submitted - this should only happen when Submit button is clicked')
     setIsSubmitting(true)
     
     try {
@@ -399,7 +400,7 @@ export default function AgentApplicationPage() {
                    </button>
                  </div>
                ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                                 <div className="space-y-6">
                   {formStep === 1 && (
                     <div className="space-y-6">
                       <h3 className="text-2xl font-bold mb-6">Company Information</h3>
@@ -557,6 +558,7 @@ export default function AgentApplicationPage() {
                            name="message"
                            value={formData.message}
                            onChange={handleInputChange}
+                           onFocus={() => console.log('Textarea focused')}
                            onKeyDown={(e) => {
                              // Prevent form submission on Enter key
                              if (e.key === 'Enter' && !e.ctrlKey && !e.shiftKey) {
@@ -591,18 +593,22 @@ export default function AgentApplicationPage() {
                           Next
                         </button>
                       ) : (
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="btn-primary disabled:opacity-50"
-                        >
-                          {isSubmitting ? 'Submitting...' : 'Submit Application'}
-                        </button>
+                                                 <button
+                           type="button"
+                           disabled={isSubmitting}
+                           onClick={() => {
+                             console.log('Submit button clicked')
+                             handleSubmit(new Event('submit') as any)
+                           }}
+                           className="btn-primary disabled:opacity-50"
+                         >
+                           {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                         </button>
                       )}
                     </div>
-                  </div>
-                </form>
-              )}
+                                     </div>
+                 </div>
+               )}
             </div>
           </div>
         </div>
