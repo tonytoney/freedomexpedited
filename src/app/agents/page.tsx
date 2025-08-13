@@ -353,22 +353,24 @@ export default function AgentApplicationPage() {
               </p>
             </div>
             
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg">
-                             {/* Progress Bar */}
-               <div className="mb-8">
-                 <div className="flex justify-between mb-2">
-                   <span className="text-sm font-medium">Step {formStep} of 3</span>
-                   <span className="text-sm text-gray-500">{Math.min(Math.round((formStep / 3) * 100), 100)}%</span>
+                         <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+               {/* Progress Bar - Only show for steps 1-3 */}
+               {formStep < 4 && (
+                 <div className="mb-8">
+                   <div className="flex justify-between mb-2">
+                     <span className="text-sm font-medium">Step {formStep} of 3</span>
+                     <span className="text-sm text-gray-500">{Math.min(Math.round((formStep / 3) * 100), 100)}%</span>
+                   </div>
+                   <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                     <div 
+                       className="bg-primary h-2 rounded-full transition-all duration-300"
+                       style={{ width: `${Math.min((formStep / 3) * 100, 100)}%` }}
+                     ></div>
+                   </div>
                  </div>
-                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-                   <div 
-                     className="bg-primary h-2 rounded-full transition-all duration-300"
-                     style={{ width: `${Math.min((formStep / 3) * 100, 100)}%` }}
-                   ></div>
-                 </div>
-               </div>
+               )}
 
-                             {formStep === 4 ? (
+               {formStep === 4 ? (
                  <div className="text-center py-12">
                    <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-6" />
                    <h3 className="text-2xl font-bold mb-4">Application Submitted!</h3>
@@ -556,13 +558,15 @@ export default function AgentApplicationPage() {
                            value={formData.message}
                            onChange={handleInputChange}
                            onKeyDown={(e) => {
-                             if (e.key === 'Enter' && e.ctrlKey) {
-                               // Allow Ctrl+Enter for new line
-                               return
-                             }
-                             if (e.key === 'Enter') {
+                             // Prevent form submission on Enter key
+                             if (e.key === 'Enter' && !e.ctrlKey && !e.shiftKey) {
                                e.preventDefault()
                              }
+                           }}
+                           onFocus={(e) => {
+                             // Prevent any form submission on focus
+                             e.target.blur()
+                             setTimeout(() => e.target.focus(), 0)
                            }}
                            rows={6}
                            placeholder="Describe your current operations, goals, and why you're interested in becoming a Freedom Expedited agent..."
