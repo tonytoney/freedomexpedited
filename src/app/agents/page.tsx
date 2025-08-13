@@ -563,11 +563,6 @@ export default function AgentApplicationPage() {
                                e.preventDefault()
                              }
                            }}
-                           onFocus={(e) => {
-                             // Prevent any form submission on focus
-                             e.target.blur()
-                             setTimeout(() => e.target.focus(), 0)
-                           }}
                            rows={6}
                            placeholder="Describe your current operations, goals, and why you're interested in becoming a Freedom Expedited agent..."
                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
