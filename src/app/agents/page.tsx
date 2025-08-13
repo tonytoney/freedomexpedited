@@ -183,6 +183,25 @@ export default function AgentApplicationPage() {
   }
 
   const nextStep = () => {
+    // Validate current step before proceeding
+    if (formStep === 1) {
+      if (!formData.companyName || !formData.contactName || !formData.email || !formData.phone) {
+        alert('Please fill in all required fields in Company Information.')
+        return
+      }
+    } else if (formStep === 2) {
+      if (!formData.trucks || !formData.revenue) {
+        alert('Please fill in all required fields in Business Requirements.')
+        return
+      }
+      // Validate minimum trucks requirement
+      const truckCount = parseInt(formData.trucks)
+      if (truckCount < 10) {
+        alert('Minimum 10 trucks required to proceed.')
+        return
+      }
+    }
+    
     if (formStep < 3) setFormStep(formStep + 1)
   }
 
@@ -370,50 +389,66 @@ export default function AgentApplicationPage() {
                     <div className="space-y-6">
                       <h3 className="text-2xl font-bold mb-6">Company Information</h3>
                       <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Company Name *</label>
-                          <input
-                            type="text"
-                            name="companyName"
-                            value={formData.companyName}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Contact Name *</label>
-                          <input
-                            type="text"
-                            name="contactName"
-                            value={formData.contactName}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Email *</label>
-                          <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Phone *</label>
-                          <input
-                            type="tel"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
-                          />
-                        </div>
+                                                 <div>
+                           <label className="block text-sm font-medium mb-2">Company Name *</label>
+                           <input
+                             type="text"
+                             name="companyName"
+                             value={formData.companyName}
+                             onChange={handleInputChange}
+                             required
+                             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 ${
+                               formData.companyName === '' && formStep === 1
+                                 ? 'border-red-500 dark:border-red-500' 
+                                 : 'border-gray-300 dark:border-gray-600'
+                             }`}
+                           />
+                         </div>
+                                                 <div>
+                           <label className="block text-sm font-medium mb-2">Contact Name *</label>
+                           <input
+                             type="text"
+                             name="contactName"
+                             value={formData.contactName}
+                             onChange={handleInputChange}
+                             required
+                             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 ${
+                               formData.contactName === '' && formStep === 1
+                                 ? 'border-red-500 dark:border-red-500' 
+                                 : 'border-gray-300 dark:border-gray-600'
+                             }`}
+                           />
+                         </div>
+                         <div>
+                           <label className="block text-sm font-medium mb-2">Email *</label>
+                           <input
+                             type="email"
+                             name="email"
+                             value={formData.email}
+                             onChange={handleInputChange}
+                             required
+                             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 ${
+                               formData.email === '' && formStep === 1
+                                 ? 'border-red-500 dark:border-red-500' 
+                                 : 'border-gray-300 dark:border-gray-600'
+                             }`}
+                           />
+                         </div>
+                         <div>
+                           <label className="block text-sm font-medium mb-2">Phone *</label>
+                           <input
+                             type="tel"
+                             name="phone"
+                             value={formData.phone}
+                             onChange={handleInputChange}
+                             required
+                             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 ${
+                               formData.phone === '' && formStep === 1
+                                 ? 'border-red-500 dark:border-red-500' 
+                                 : 'border-gray-300 dark:border-gray-600'
+                             }`}
+                           />
+                         </div>
                       </div>
                     </div>
                   )}
@@ -422,36 +457,56 @@ export default function AgentApplicationPage() {
                     <div className="space-y-6">
                       <h3 className="text-2xl font-bold mb-6">Business Requirements</h3>
                       <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Number of Trucks *</label>
-                          <input
-                            type="number"
-                            name="trucks"
-                            value={formData.trucks}
-                            onChange={handleInputChange}
-                            min="10"
-                            required
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
-                          />
-                          <p className="text-sm text-gray-500 mt-1">Minimum 10 trucks required</p>
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium mb-2">Annual Revenue *</label>
-                          <select
-                            name="revenue"
-                            value={formData.revenue}
-                            onChange={handleInputChange}
-                            required
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700"
-                          >
-                            <option value="">Select revenue range</option>
-                            <option value="1-2M">$1M - $2M</option>
-                            <option value="2-5M">$2M - $5M</option>
-                            <option value="5-10M">$5M - $10M</option>
-                            <option value="10M+">$10M+</option>
-                          </select>
-                          <p className="text-sm text-gray-500 mt-1">Minimum $1M required</p>
-                        </div>
+                                                 <div>
+                           <label className="block text-sm font-medium mb-2">Number of Trucks *</label>
+                           <input
+                             type="number"
+                             name="trucks"
+                             value={formData.trucks}
+                             onChange={handleInputChange}
+                             min="10"
+                             required
+                             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 ${
+                               formData.trucks && parseInt(formData.trucks) < 10 
+                                 ? 'border-red-500 dark:border-red-500' 
+                                 : 'border-gray-300 dark:border-gray-600'
+                             }`}
+                           />
+                           <p className={`text-sm mt-1 ${
+                             formData.trucks && parseInt(formData.trucks) < 10 
+                               ? 'text-red-500' 
+                               : 'text-gray-500'
+                           }`}>
+                             Minimum 10 trucks required
+                           </p>
+                         </div>
+                                                 <div>
+                           <label className="block text-sm font-medium mb-2">Annual Revenue *</label>
+                           <select
+                             name="revenue"
+                             value={formData.revenue}
+                             onChange={handleInputChange}
+                             required
+                             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 ${
+                               !formData.revenue 
+                                 ? 'border-red-500 dark:border-red-500' 
+                                 : 'border-gray-300 dark:border-gray-600'
+                             }`}
+                           >
+                             <option value="">Select revenue range</option>
+                             <option value="1-2M">$1M - $2M</option>
+                             <option value="2-5M">$2M - $5M</option>
+                             <option value="5-10M">$5M - $10M</option>
+                             <option value="10M+">$10M+</option>
+                           </select>
+                           <p className={`text-sm mt-1 ${
+                             !formData.revenue 
+                               ? 'text-red-500' 
+                               : 'text-gray-500'
+                           }`}>
+                             Minimum $1M required
+                           </p>
+                         </div>
                         <div>
                           <label className="block text-sm font-medium mb-2">Preferred Territory</label>
                           <input
