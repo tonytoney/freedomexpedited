@@ -110,7 +110,7 @@ export async function POST(request: NextRequest) {
 
         // Email to admin team
         const adminMailOptions = {
-          from: process.env.SMTP_FROM_EMAIL,
+          from: `"${process.env.SMTP_FROM_NAME || 'Freedom Expedited'}" <${process.env.SMTP_FROM_EMAIL}>`,
           to: process.env.SMTP_USER,
           subject: `New Agent Application: ${companyName}`,
           html: `
@@ -145,7 +145,7 @@ export async function POST(request: NextRequest) {
 
         // Email to applicant
         const applicantMailOptions = {
-          from: process.env.SMTP_FROM_EMAIL,
+          from: `"${process.env.SMTP_FROM_NAME || 'Freedom Expedited'}" <${process.env.SMTP_FROM_EMAIL}>`,
           to: email,
           subject: 'Your Freedom Expedited Agent Application',
           html: `
