@@ -12,7 +12,7 @@ const navigation = [
   { name: 'Locations', href: '/locations' },
   { name: 'Agents', href: '/agents' },
   { name: 'Careers', href: '/careers' },
-  { name: 'Tracking', href: 'https://www.inpaxshippingportal.com', external: true },
+  { name: 'Tracking', href: 'https://freedom.tmsez.com/home', external: true },
   { name: 'Contact', href: '/contact' },
 ]
 
