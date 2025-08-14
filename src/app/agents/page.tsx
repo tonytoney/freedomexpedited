@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import Image from 'next/image'
+import { trackFormSubmission, trackButtonClick } from '@/lib/analytics'
 import { 
   TruckIcon, 
   CurrencyDollarIcon, 
@@ -143,6 +144,7 @@ export default function AgentApplicationPage() {
   const formRef = useRef<HTMLDivElement>(null)
 
   const scrollToForm = () => {
+    trackButtonClick('apply_now_hero')
     formRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -174,6 +176,7 @@ export default function AgentApplicationPage() {
       }
 
       console.log('Application submitted successfully:', result)
+      trackFormSubmission('agent_application')
       setFormStep(4) // Show success message
     } catch (error) {
       console.error('Error submitting application:', error)
@@ -667,12 +670,15 @@ export default function AgentApplicationPage() {
             Join hundreds of successful agents who trust Freedom Expedited to grow their business
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={scrollToForm}
-              className="btn-secondary"
-            >
-              Apply Now
-            </button>
+                         <button
+               onClick={() => {
+                 trackButtonClick('apply_now_footer')
+                 scrollToForm()
+               }}
+               className="btn-secondary"
+             >
+               Apply Now
+             </button>
             <a
               href="/contact"
               className="btn-secondary bg-white text-primary hover:bg-gray-100"
