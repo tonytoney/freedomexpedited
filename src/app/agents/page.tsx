@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import { 
   TruckIcon, 
   CurrencyDollarIcon, 
@@ -20,6 +21,17 @@ import {
   ChevronDownIcon,
   ChevronUpIcon
 } from '@heroicons/react/24/outline'
+
+export const metadata: Metadata = {
+  title: 'Become an Agent | Freedom Expedited - Join Our Network',
+  description: 'Join Freedom Expedited as an agent. Up to 85% commission, advanced technology, 24/7 support, and nationwide coverage. Minimum 10 trucks and $1M revenue required.',
+  keywords: 'become agent, freight agent, transportation agent, commission, 85% commission, agent network, freight business opportunity, logistics agent',
+  openGraph: {
+    title: 'Become an Agent | Freedom Expedited',
+    description: 'Join our network with up to 85% commission and full support.',
+    type: 'website',
+  },
+}
 
 const benefits = [
   {
