@@ -52,6 +52,9 @@ export const metadata: Metadata = {
     apple: '/favicon/apple-touch-icon.svg',
   },
   manifest: '/favicon/site.webmanifest',
+  verification: {
+    google: 'BPRw5i6PrJlbfCpMQlZULRs0Fb1fdeLf5bitxJvum8Q',
+  },
 }
 
 export default function RootLayout({
@@ -62,7 +65,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-      <meta name="google-site-verification" content="BPRw5i6PrJlbfCpMQlZULRs0Fb1fdeLf5bitxJvum8Q" />
 
         <script
           type="application/ld+json"
