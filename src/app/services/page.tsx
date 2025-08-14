@@ -2,18 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Our Services | Freedom Expedited - Port Drayage & Container Transport',
-  description: 'Professional port drayage, container transport, and 24/7 dispatch services. Real-time tracking, customs coordination, and nationwide coverage.',
-  keywords: 'port drayage, container transport, dispatch services, customs coordination, real-time tracking, intermodal transport, container storage',
-  openGraph: {
-    title: 'Our Services | Freedom Expedited',
-    description: 'Professional port drayage, container transport, and 24/7 dispatch services.',
-    type: 'website',
-  },
-}
 
 const services = [
   {

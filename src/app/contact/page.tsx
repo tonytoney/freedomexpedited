@@ -2,18 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { useState, FormEvent, useRef } from 'react'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Contact Us | Freedom Expedited - Get a Quote Today',
-  description: 'Contact Freedom Expedited for quotes, questions, or partnership opportunities. Get reliable drayage and transportation solutions with 24/7 support.',
-  keywords: 'contact Freedom Expedited, get quote, drayage quote, transportation services, customer support, freight solutions contact',
-  openGraph: {
-    title: 'Contact Us | Freedom Expedited',
-    description: 'Get in touch for quotes, questions, or partnership opportunities.',
-    type: 'website',
-  },
-}
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
