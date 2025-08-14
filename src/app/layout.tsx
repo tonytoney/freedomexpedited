@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   manifest: '/favicon/site.webmanifest',
   verification: {
-    google: 'your-google-verification-code', // Add your Google Search Console verification code
+    google: 'google7f52ef9e81ee4de5.html',
   },
 }
 
