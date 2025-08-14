@@ -52,9 +52,6 @@ export const metadata: Metadata = {
     apple: '/favicon/apple-touch-icon.svg',
   },
   manifest: '/favicon/site.webmanifest',
-  verification: {
-    google: 'BPRw5i6PrJlbfCpMQlZULRs0Fb1fdeLf5bitxJvum8Q',
-  },
 }
 
 export default function RootLayout({
